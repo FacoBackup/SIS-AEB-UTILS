@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types'
 import React, {useContext, useEffect, useState} from 'react'
 import styles from './styles/Profile.module.css'
-import Button from "../../core/inputs/button/Button";
-import ToolTip from "../../core/feedback/tooltip/ToolTip";
 import {Avatar} from "@material-ui/core";
 import RailContext from "../../core/navigation/rail/RailContext";
 import Dropdown from "../../core/navigation/dropdown/Dropdown";
 import {ExitToAppRounded} from "@material-ui/icons";
+import {Button, ToolTip} from "mfc-core";
 
 const profileTemplate = {
     name: PropTypes.string,
@@ -14,14 +13,8 @@ const profileTemplate = {
     image: PropTypes.string
 }
 export default function Profile(props) {
-    const [open, setOpen] = useState(false)
+
     const extended = useContext(RailContext)
-
-    useEffect(() => {
-        if (!props.profile || Object.keys(props.profile).length === 0)
-            setOpen(false)
-    }, [props.profile])
-
 
     return (
         <div
@@ -40,7 +33,7 @@ export default function Profile(props) {
                         },
                         {
 
-                            label:'Sair',
+                            label: 'Sair',
                             icon: <ExitToAppRounded/>,
                             onClick: () => props.redirect(1)
                         }
@@ -71,30 +64,30 @@ export default function Profile(props) {
                         null
                     }
                     <Avatar style={{width: '30px', height: '30px'}} src={props.profile.image}/>
-                    <ToolTip content={props.profile.name}/>
+                    <ToolTip content={props.profile.name} align={"middle"} justify={'end'}/>
                 </Dropdown>
 
                 :
                 <Button
                     className={styles.buttonContainer}
-                    onClick={() => props.fallbackProfileButton.onClick()}
+                    onClick={() => props.openAuth()}
                     styles={{
-                        justifyContent: 'center',
-                        minWidth: '100px',
-                        gap: '8px'
+                        paddingLeft: '2px',
+                        paddingRight: '2px',
+                        justifyContent: extended ? 'space-between' : 'center'
                     }}
                 >
                     {extended ?
-                        <div>
-                            {props.fallbackProfileButton.label}
-                        </div>
+                        'Entrar'
                         :
                         null
                     }
-                    {props.fallbackProfileButton.icon}
+                    <span style={{transform: 'rotate(180deg)'}} className={'material-icons-round'}>
+                        exit_to_app
+                    </span>
+                    <ToolTip content={'Entrar'} align={"middle"} justify={'end'}/>
                 </Button>
             }
-
 
 
         </div>
@@ -103,4 +96,5 @@ export default function Profile(props) {
 Profile.propTypes = {
     redirect: PropTypes.func.isRequired,
     profile: PropTypes.shape(profileTemplate),
+    openAuth: PropTypes.func.isRequired
 }

@@ -1,24 +1,3 @@
-@import '../../../core/misc/theme/styles.module.css';
-
-
-.profileButton {
-    display: grid;
-    justify-content: center;
-    justify-items: center;
-    align-items: center;
-    gap: 8px;
-    height: auto;
-    padding: 8px;
-
-    width: 100%;
-    font-size: .75rem;
-    font-weight: 600;
-}
-
-.buttonLabel {
-    margin-left: 8px;
-    overflow: hidden;
-}
 
 .buttonContainer {
 

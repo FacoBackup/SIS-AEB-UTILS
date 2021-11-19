@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "./styles/Apps.module.css";
 import PropTypes from 'prop-types'
-import Dropdown from "../../core/navigation/dropdown/Dropdown";
-import {ToolTip} from "mfc-core";
+import {ToolTip, Dropdown} from "mfc-core";
 
 export default function Apps(props) {
 

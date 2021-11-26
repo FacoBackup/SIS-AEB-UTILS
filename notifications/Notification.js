@@ -13,9 +13,9 @@ export default function Notification(props) {
             headers: {'authorization': (new Cookies()).get('jwt')}
         }).then(r => {
             console.log(r)
-            setNotifications(r.data.map(n => {
+            setNotifications(r.data? r.data.map(n => {
                 return {label: n.title, disabled: true, icon: <span className={'material-icons-round'}>history</span>}
-            }))
+            }) : [])
         })
     }
     const handleClick = () => {
@@ -49,7 +49,7 @@ export default function Notification(props) {
             <Dropdown
                 align={"top"} jusitify={'end'}
                 className={styles.buttonContainer}
-                options={notifications.length > 0 ? notifications : [
+                options={notifications?.length > 0 ? notifications : [
                     {
                         icon: <span className="material-icons-round">folder</span>,
                         disabled: true,

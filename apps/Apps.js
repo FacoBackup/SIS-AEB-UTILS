@@ -7,9 +7,10 @@ export default function Apps(props) {
 
     return (
         <Dropdown
-            align={"top"} jusitify={'end'}
+            align={"top"} justify={'start'}
             className={styles.buttonContainer}
             options={props.buttons}
+            variant={'minimal-horizontal'}
             styles={{
                 paddingLeft: '2px',
                 paddingRight: '2px',

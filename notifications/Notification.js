@@ -19,7 +19,6 @@ export default function Notification(props) {
         })
     }
     const handleClick = () => {
-        console.log('HERE')
         let newNotifications = []
         notifications.forEach(e => {
             newNotifications.push({
@@ -47,8 +46,9 @@ export default function Notification(props) {
     return (
         <span ref={ref}>
             <Dropdown
-                align={"top"} jusitify={'end'}
+                align={"top"} justify={'start'}
                 className={styles.buttonContainer}
+                variant={'minimal-horizontal'}
                 options={notifications?.length > 0 ? notifications : [
                     {
                         icon: <span className="material-icons-round">folder</span>,

@@ -17,8 +17,8 @@ export default function Profile(props) {
         <>
             {props.profile && Object.keys(props.profile).length > 0 ?
                 <Dropdown
-                    align={"top"} jusitify={'end'}
-                    highlight={props.highlight}
+                    align={"top"} justify={'start'}
+                    highlight={props.highlight} variant={'minimal-horizontal'}
                     className={styles.buttonContainer}
                     options={[
                         {

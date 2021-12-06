@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'
-import React, {useContext, useEffect, useState} from 'react'
+import React from 'react'
 import styles from './styles/Profile.module.css'
 import {Avatar} from "@material-ui/core";
 import {ExitToAppRounded} from "@material-ui/icons";
-import {ToolTip, Dropdown, Button} from "mfc-core";
+import {Button, Dropdown, ToolTip} from "mfc-core";
 
 const profileTemplate = {
     name: PropTypes.string,

@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from "react";
 import styles from "./styles/Notification.module.css";
 import PropTypes from 'prop-types'
-import {ToolTip, Dropdown, request} from "mfc-core";
+import {Dropdown, request, ToolTip} from "mfc-core";
 import Cookies from "universal-cookie/lib";
 
 export default function Notification(props) {
@@ -9,7 +9,7 @@ export default function Notification(props) {
     const fetchData = () => {
         request({
             method: 'get',
-            url: props.host + '/list/notification',
+            url: props.host + '/notify/list/notification',
             headers: {'authorization': (new Cookies()).get('jwt')}
         }).then(r => {
             console.log(r)
